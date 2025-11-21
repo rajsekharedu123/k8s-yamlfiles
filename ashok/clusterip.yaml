@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: javawebapppodsvc
+  namespace: default
+labels:
+    app: my-app
+spec:
+  type: ClusterIP
+  selector:
+    app: javawebapp
+  ports:
+    - port: 80          # Service port
+      targetPort: 8080  # Container port
+      protocol: TCP
